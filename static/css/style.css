@@ -4,7 +4,68 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* CSS cho bản đồ */
 #map {
-    height: 100vh; /* Full màn hình */
     width: 100%;
+    height: 100vh;
+}
+
+/* Sidebar properties */
+#properties {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: #f4f4f4;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Khi thu gọn sidebar */
+#properties.collapsed {
+    transform: translateX(-100%);
+}
+
+/* Header của Properties */
+#properties-header {
+    background: #0078d7;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Nội dung bên trong Properties */
+#properties-content {
+    padding: 10px;
+}
+
+/* Nút toggle */
+#toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 310px;
+    z-index: 1100;
+    background: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#toggle-btn.collapsed {
+    left: 10px;
+}
+
+/* Điều chỉnh vị trí nút zoom */
+.leaflet-control-zoom {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    transition: left 0.3s ease; /* Thêm hiệu ứng di chuyển */
 }
