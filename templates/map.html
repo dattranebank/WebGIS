@@ -3,35 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebGIS Sample</title>
+    <title>Leaflet with Collapsible Properties</title>
+
+    <!-- Thêm Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 </head>
 <body>
+    <!-- Sidebar Properties -->
+    <div id="properties" class="collapsed">
+        <div id="properties-header">Properties</div>
+        <div id="properties-content">
+            <p>Population: 1,234,567</p>
+            <p>Area: 123 km²</p>
+        </div>
+    </div>
+
+    <!-- Nút toggle -->
+    <button id="toggle-btn" class="collapsed">⮞</button>
+
+    <!-- Bản đồ -->
     <div id="map"></div>
-    <script>
-        // Khởi tạo bản đồ
-        const map = L.map('map').setView([10.762622, 106.660172], 10);
 
-        // Thêm layer bản đồ nền
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        // Load dữ liệu GeoJSON từ API Flask
-        fetch('/data/hcm')
-            .then(response => response.json())
-            .then(data => {
-                L.geoJSON(JSON.parse(data), {
-                    onEachFeature: (feature, layer) => {
-                        const popupContent = `<b>${feature.properties.name}</b>`;
-                        layer.bindPopup(popupContent);
-                    }
-                }).addTo(map);
-            })
-            .catch(error => console.error('Error loading GeoJSON data:', error));
-    </script>
+    <!-- Thêm Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

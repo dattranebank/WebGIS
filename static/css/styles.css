@@ -64,8 +64,7 @@ body {
 
 /* Điều chỉnh vị trí nút zoom */
 .leaflet-control-zoom {
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    transition: left 0.3s ease; /* Thêm hiệu ứng di chuyển */
+    position: absolute; /* Đảm bảo nút zoom có thể được căn chỉnh */
+    top: 850px; /* Căn giữa theo chiều dọc */
+    left: 1850px; /* Đưa nút zoom sang bên phải */
 }
