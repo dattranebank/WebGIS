@@ -7,8 +7,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Ngăn cuộn ngang */
-
+    overflow-x: hidden; /* Khóa cuộn ngang */
+    overflow-y: hidden /* Khóa cuộn dọc */
 }
 
 /* CSS cho bản đồ */
@@ -20,7 +20,7 @@ body {
 /* Điều chỉnh vị trí nút zoom */
 .leaflet-control-zoom {
     position: absolute; /* Đảm bảo nút zoom có thể được căn chỉnh */
-    top: 850px; /* Căn giữa theo chiều dọc */
+    top: 800px; /* Căn giữa theo chiều dọc */
     left: 1850px; /* Đưa nút zoom sang bên phải */
     transition: top 0.3s, left 0.3s; /* Thêm hiệu ứng chuyển động khi thay đổi vị trí */
 }

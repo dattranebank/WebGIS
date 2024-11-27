@@ -3,8 +3,8 @@ const map = L.map('map', {
     center: [14.0583, 108.2772],  // Tọa độ trung tâm của Việt Nam
     zoom: 7,
     maxBounds: [
-        [8.2, 102.1],  // Góc dưới trái
-        [23.4, 109.5]   // Góc trên phải
+        [7, 103],  // Góc dưới trái
+        [25, 110]   // Góc trên phải
     ],
     maxBoundsViscosity: 1.0 // Đảm bảo rằng các thao tác zoom sẽ giữ trong phạm vi này
 });
@@ -40,7 +40,7 @@ function updateZoomControlPosition() {
     zoomControl.style.left = layers.classList.contains('collapsed') ? '1850px' : '1550px';
 
     // Điều chỉnh `top` theo trạng thái Dashboard
-    zoomControl.style.top = dashboard.classList.contains('collapsed') ? '850px' : '565px';
+    zoomControl.style.top = dashboard.classList.contains('collapsed') ? '800px' : '500px';
 }
 
 // Sự kiện toggle cho Layers
