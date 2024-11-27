@@ -18,7 +18,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Sidebar toggle
 const properties = document.getElementById('properties');
-const toggleBtn = document.getElementById('toggle-btn');
+const toggleBtn = document.getElementById('toggle-properties-btn');
 
 toggleBtn.addEventListener('click', () => {
     properties.classList.toggle('collapsed');

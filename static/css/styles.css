@@ -10,6 +10,14 @@ body {
     height: 100vh;
 }
 
+/* Điều chỉnh vị trí nút zoom */
+.leaflet-control-zoom {
+    position: absolute; /* Đảm bảo nút zoom có thể được căn chỉnh */
+    top: 850px; /* Căn giữa theo chiều dọc */
+    left: 1850px; /* Đưa nút zoom sang bên phải */
+}
+
+
 /* Sidebar properties */
 #properties {
     position: absolute;
@@ -43,8 +51,9 @@ body {
     padding: 10px;
 }
 
-/* Nút toggle */
-#toggle-btn {
+
+/* Nút toggle của properties side */
+#toggle-properties-btn {
     position: absolute;
     top: 20px;
     left: 310px;
@@ -58,13 +67,7 @@ body {
     transition: 0.3s;
 }
 
-#toggle-btn.collapsed {
+#toggle-properties-btn.collapsed {
     left: 10px;
 }
 
-/* Điều chỉnh vị trí nút zoom */
-.leaflet-control-zoom {
-    position: absolute; /* Đảm bảo nút zoom có thể được căn chỉnh */
-    top: 850px; /* Căn giữa theo chiều dọc */
-    left: 1850px; /* Đưa nút zoom sang bên phải */
-}

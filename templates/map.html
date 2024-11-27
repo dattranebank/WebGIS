@@ -11,16 +11,10 @@
 </head>
 <body>
     <!-- Sidebar Properties -->
-    <div id="properties" class="collapsed">
-        <div id="properties-header">Properties</div>
-        <div id="properties-content">
-            <p>Population: 1,234,567</p>
-            <p>Area: 123 km²</p>
-        </div>
-    </div>
+    {% include 'properties.html' %}
 
     <!-- Nút toggle -->
-    <button id="toggle-btn" class="collapsed">⮞</button>
+    <button id="toggle-properties-btn" class="collapsed">⮞</button>
 
     <!-- Bản đồ -->
     <div id="map"></div>
