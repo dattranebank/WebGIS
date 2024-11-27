@@ -16,7 +16,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// Sidebar Proerties toggle
+// Sidebar Properties toggle
 const properties = document.getElementById('properties');
 const togglePropertiesBtn = document.getElementById('toggle-properties-btn');
 
@@ -29,9 +29,18 @@ togglePropertiesBtn.addEventListener('click', () => {
 // Sidebar Layers toggle
 const layers = document.getElementById('layers');
 const toggleLayersBtn = document.getElementById('toggle-layers-btn');
+const zoomControl = document.querySelector('.leaflet-control-zoom');
 
 toggleLayersBtn.addEventListener('click', () => {
     layers.classList.toggle('collapsed');
     toggleLayersBtn.classList.toggle('collapsed');
     toggleLayersBtn.textContent = layers.classList.contains('collapsed') ? '⮜' : '⮞';
+
+    // Điều chỉnh vị trí nút zoom
+    if (layers.classList.contains('collapsed')) {
+        zoomControl.style.left = '1850px'; // Vị trí khi sidebar thu gọn
+    } else {
+        zoomControl.style.left = '1550px'; // Vị trí khi sidebar mở rộng
+    }
 });
+
