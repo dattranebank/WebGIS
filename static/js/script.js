@@ -31,16 +31,34 @@ const layers = document.getElementById('layers');
 const toggleLayersBtn = document.getElementById('toggle-layers-btn');
 const zoomControl = document.querySelector('.leaflet-control-zoom');
 
+// Sidebar Dashboard toggle
+const dashboard = document.getElementById('dashboard');
+const toggleDashboardBtn = document.getElementById('toggle-dashboard-btn');
+
+function updateZoomControlPosition() {
+    // Điều chỉnh `left` theo trạng thái Layers
+    zoomControl.style.left = layers.classList.contains('collapsed') ? '1850px' : '1550px';
+
+    // Điều chỉnh `top` theo trạng thái Dashboard
+    zoomControl.style.top = dashboard.classList.contains('collapsed') ? '850px' : '565px';
+}
+
+// Sự kiện toggle cho Layers
 toggleLayersBtn.addEventListener('click', () => {
     layers.classList.toggle('collapsed');
     toggleLayersBtn.classList.toggle('collapsed');
     toggleLayersBtn.textContent = layers.classList.contains('collapsed') ? '⮜' : '⮞';
 
-    // Điều chỉnh vị trí nút zoom
-    if (layers.classList.contains('collapsed')) {
-        zoomControl.style.left = '1850px'; // Vị trí khi sidebar thu gọn
-    } else {
-        zoomControl.style.left = '1550px'; // Vị trí khi sidebar mở rộng
-    }
+    // Cập nhật vị trí nút zoom
+    updateZoomControlPosition();
 });
 
+// Sự kiện toggle cho Dashboard
+toggleDashboardBtn.addEventListener('click', () => {
+    dashboard.classList.toggle('collapsed');
+    toggleDashboardBtn.classList.toggle('collapsed');
+    toggleDashboardBtn.textContent = dashboard.classList.contains('collapsed') ? '▲' : '▼';
+
+    // Cập nhật vị trí nút zoom
+    updateZoomControlPosition();
+});

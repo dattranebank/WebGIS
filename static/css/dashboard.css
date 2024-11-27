@@ -1,0 +1,53 @@
+/* Dashboard nằm dưới */
+#dashboard {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Dashboard trải dài toàn bộ chiều ngang */
+    height: 300px; /* Chiều cao của dashboard */
+    background: #f4f4f4;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng ở trên */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Header của dashboard */
+#dashboard-header {
+    background: #0078d7;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Nội dung bên trong dashboard */
+#dashboard-content {
+    padding: 10px;
+    overflow-y: auto; /* Thêm thanh cuộn nếu nội dung dài hơn */
+    height: calc(100% - 40px); /* Trừ đi chiều cao của header */
+}
+
+/* Khi thu gọn dashboard */
+#dashboard.collapsed {
+    transform: translateY(100%); /* Thu gọn xuống dưới */
+}
+
+/* Nút toggle của dashboard */
+#toggle-dashboard-btn {
+    position: absolute;
+    bottom: 310px; /* Đặt nút ngay trên dashboard */
+    left: 20px;
+    z-index: 1100;
+    background: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#toggle-dashboard-btn.collapsed {
+    bottom: 10px; /* Điều chỉnh vị trí nút khi dashboard thu gọn */
+}
