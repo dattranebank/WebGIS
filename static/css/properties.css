@@ -1,23 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* CSS cho bản đồ */
-#map {
-    width: 100%;
-    height: 100vh;
-}
-
-/* Điều chỉnh vị trí nút zoom */
-.leaflet-control-zoom {
-    position: absolute; /* Đảm bảo nút zoom có thể được căn chỉnh */
-    top: 850px; /* Căn giữa theo chiều dọc */
-    left: 1850px; /* Đưa nút zoom sang bên phải */
-}
-
-
 /* Sidebar properties */
 #properties {
     position: absolute;
@@ -31,12 +11,7 @@ body {
     z-index: 1000;
 }
 
-/* Khi thu gọn sidebar */
-#properties.collapsed {
-    transform: translateX(-100%);
-}
-
-/* Header của Properties */
+/* Header của properties */
 #properties-header {
     background: #0078d7;
     color: white;
@@ -51,6 +26,10 @@ body {
     padding: 10px;
 }
 
+/* Khi thu gọn sidebar */
+#properties.collapsed {
+    transform: translateX(-100%);
+}
 
 /* Nút toggle của properties side */
 #toggle-properties-btn {
@@ -70,4 +49,3 @@ body {
 #toggle-properties-btn.collapsed {
     left: 10px;
 }
-

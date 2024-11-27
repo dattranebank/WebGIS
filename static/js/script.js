@@ -16,12 +16,22 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// Sidebar toggle
+// Sidebar Proerties toggle
 const properties = document.getElementById('properties');
-const toggleBtn = document.getElementById('toggle-properties-btn');
+const togglePropertiesBtn = document.getElementById('toggle-properties-btn');
 
-toggleBtn.addEventListener('click', () => {
+togglePropertiesBtn.addEventListener('click', () => {
     properties.classList.toggle('collapsed');
-    toggleBtn.classList.toggle('collapsed');
-    toggleBtn.textContent = properties.classList.contains('collapsed') ? '⮞' : '⮜';
+    togglePropertiesBtn.classList.toggle('collapsed');
+    togglePropertiesBtn.textContent = properties.classList.contains('collapsed') ? '⮞' : '⮜';
+});
+
+// Sidebar Layers toggle
+const layers = document.getElementById('layers');
+const toggleLayersBtn = document.getElementById('toggle-layers-btn');
+
+toggleLayersBtn.addEventListener('click', () => {
+    layers.classList.toggle('collapsed');
+    toggleLayersBtn.classList.toggle('collapsed');
+    toggleLayersBtn.textContent = layers.classList.contains('collapsed') ? '⮜' : '⮞';
 });

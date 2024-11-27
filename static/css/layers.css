@@ -1,0 +1,51 @@
+/* Sidebar layers */
+#layers {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 300px;
+    height: 100%;
+    background: #f4f4f4;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Header của layers */
+#layers-header {
+    background: #0078d7;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Nội dung bên trong layers */
+#layers-content {
+    padding: 10px;
+}
+
+/* Khi thu gọn sidebar */
+#layers.collapsed {
+    transform: translateX(100%);
+}
+
+/* Nút toggle của layers side */
+#toggle-layers-btn {
+    position: absolute;
+    top: 20px;
+    right: 310px;
+    z-index: 1100;
+    background: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#toggle-layers-btn.collapsed {
+    right: 10px; /* Điều chỉnh vị trí của nút khi sidebar thu gọn */
+}

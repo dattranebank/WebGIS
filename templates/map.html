@@ -7,14 +7,23 @@
 
     <!-- Thêm Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 </head>
 <body>
     <!-- Sidebar Properties -->
     {% include 'properties.html' %}
-
-    <!-- Nút toggle -->
+    <!-- Nút toggle properties-->
     <button id="toggle-properties-btn" class="collapsed">⮞</button>
+
+    <!-- Sidebar Layers -->
+    {% include 'layers.html' %}
+    <!-- Nút toggle layers-->
+    <button id="toggle-layers-btn" class="collapsed">⮜</button>
+
+<!--    &lt;!&ndash; Sidebar Visualization &ndash;&gt;-->
+<!--    {% include 'visualization.html' %}-->
+<!--    &lt;!&ndash; Nút toggle visualization&ndash;&gt;-->
+<!--    <button id="toggle-visualization-btn" class="collapsed">⮞</button>-->
 
     <!-- Bản đồ -->
     <div id="map"></div>
