@@ -6,8 +6,8 @@
     <title>Leaflet with Collapsible Properties</title>
 
     <!-- Thêm Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
     <style>
         /* CSS cho header */
         header {
@@ -21,24 +21,29 @@
             position: relative;
             z-index: 1000;
         }
+
         header .logo {
             display: flex;
             align-items: center;
         }
+
         header .logo img {
             width: 40px;
             height: 40px;
             margin-right: 10px;
         }
+
         header .logo h1 {
             font-size: 18px;
             margin: 0;
             font-weight: bold;
         }
+
         header nav {
             display: flex;
             gap: 20px;
         }
+
         header nav a {
             text-decoration: none;
             color: #333;
@@ -48,7 +53,7 @@
     </style>
 </head>
 <body>
-     <!-- Tiêu đề -->
+    <!-- Tiêu đề -->
     <header>
         <div class="logo">
             <img src="../static/img/logo_tram_chim.png" height="1196" width="1010"/>
@@ -82,6 +87,10 @@
 
     <!-- Thêm Leaflet -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="./data/VietNam.js"></script>
+    <script src="./data/Provinces.js"></script>
+    <script src="./data/DongThap.js"></script>
+    <script src="./data/DongThap_caphuyen.js"></script>
+    <script src="./static/js/script.js"></script>
 </body>
 </html>

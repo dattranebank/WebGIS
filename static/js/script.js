@@ -10,11 +10,100 @@ const map = L.map('map', {
 });
 
 // Thêm tile layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    minZoom: 7,
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+osm.addTo(map);
+
+
+/*===================================================
+                      GEOJSON
+===================================================*/
+//var vietnamData = L.geoJSON(vietnamJS).addTo(map);
+//var vietnamData2 = L.geoJSON(vietnamJS2).addTo(map);
+//var provincesData = L.geoJSON(provincesJS).addTo(map);
+//var gadm41Data = L.geoJSON(gadm41JS).addTo(map);
+
+// var gadm41Data = L.geoJSON(gadm41JS, {
+//     onEachFeature: function (feature, layer) {
+//         layer.bindPopup(`<b>Name: </b>` + feature.properties.name)
+//     }}).addTo(map)
+
+    // Thêm các polygon vào bản đồ
+// L.geoJSON(gadm41JS, {
+//       onEachFeature: function (feature, layer) {
+//         // Gắn popup hiển thị các thuộc tính của polygon
+//         var properties = feature.properties;
+//         var popupContent = "<b>Thuộc tính:</b><br>";
+//
+//         for (var key in properties) {
+//           popupContent += key + ": " + properties[key] + "<br>";
+//         }
+//
+//         layer.bindPopup(popupContent);
+//       }
+//     }).addTo(map);
+
+//     // Thêm các polygon vào bản đồ
+// L.geoJSON(vietnamJS, {
+//       onEachFeature: function (feature, layer) {
+//         // Gắn popup hiển thị các thuộc tính của polygon
+//         var properties = feature.properties;
+//         var popupContent = "<b>Thuộc tính:</b><br>";
+//
+//         for (var key in properties) {
+//           popupContent += key + ": " + properties[key] + "<br>";
+//         }
+//
+//         layer.bindPopup(popupContent);
+//       }
+//     }).addTo(map);
+//
+//     // Thêm các polygon vào bản đồ
+// L.geoJSON(provincesJS, {
+//       onEachFeature: function (feature, layer) {
+//         // Gắn popup hiển thị các thuộc tính của polygon
+//         var properties = feature.properties;
+//         var popupContent = "<b>Thuộc tính:</b><br>";
+//
+//         for (var key in properties) {
+//           popupContent += key + ": " + properties[key] + "<br>";
+//         }
+//
+//         layer.bindPopup(popupContent);
+//       }
+//     }).addTo(map);
+//
+//
+//     // Thêm các polygon vào bản đồ
+// L.geoJSON(dongthapJS, {
+//       onEachFeature: function (feature, layer) {
+//         // Gắn popup hiển thị các thuộc tính của polygon
+//         var properties = feature.properties;
+//         var popupContent = "<b>Thuộc tính:</b><br>";
+//
+//         for (var key in properties) {
+//           popupContent += key + ": " + properties[key] + "<br>";
+//         }
+//
+//         layer.bindPopup(popupContent);
+//       }
+//     }).addTo(map);
+
+    // Thêm các polygon vào bản đồ
+L.geoJSON(dongthap_caphuyenJS, {
+      onEachFeature: function (feature, layer) {
+        // Gắn popup hiển thị các thuộc tính của polygon
+        var properties = feature.properties;
+        var popupContent = "<b>Thuộc tính:</b><br>";
+
+        for (var key in properties) {
+          popupContent += key + ": " + properties[key] + "<br>";
+        }
+
+        layer.bindPopup(popupContent);
+      }
+    }).addTo(map);
 
 // Sidebar Properties toggle
 const properties = document.getElementById('properties');
