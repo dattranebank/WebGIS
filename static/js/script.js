@@ -14,6 +14,11 @@ const map = L.map('map', {
 var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
+
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+Esri_WorldImagery.addTo(map);
 osm.addTo(map);
 
 
@@ -36,10 +41,6 @@ var vietnamLayer=L.geoJSON(vietnamJS, {
             }
 
             sidebar.innerHTML = content;
-
-            // Hiển thị sidebar nếu đang ẩn
-            var sidebarContainer = document.getElementById('properties');
-            sidebarContainer.classList.remove('collapsed');
         });
 
         // Gắn popup hiển thị các thuộc tính
@@ -63,17 +64,29 @@ var vietnamLayer=L.geoJSON(vietnamJS, {
 
 // Thêm các polygon vào bản đồ
 var provincesLayer=L.geoJSON(provincesJS, {
-      onEachFeature: function (feature, layer) {
-        // Gắn popup hiển thị các thuộc tính của polygon
+    onEachFeature: function (feature, layer) {
         var properties = feature.properties;
+
+        // Gắn sự kiện click để hiển thị thuộc tính
+        layer.on('click', function () {
+            var sidebar = document.getElementById('properties-content');
+            var content = "<b>Thuộc tính:</b><br>";
+
+            // Hiển thị thuộc tính của polygon
+            for (var key in properties) {
+                content += key + ": " + properties[key] + "<br>";
+            }
+
+            sidebar.innerHTML = content;
+        });
+
+        // Gắn popup hiển thị các thuộc tính
         var popupContent = "<b>Thuộc tính:</b><br>";
-
         for (var key in properties) {
-          popupContent += key + ": " + properties[key] + "<br>";
+            popupContent += key + ": " + properties[key] + "<br>";
         }
-
         layer.bindPopup(popupContent);
-      },
+    },
       style: function (feature) {
     // Tùy chọn màu sắc và kiểu đường viền cho polygon
     return {
@@ -88,17 +101,29 @@ var provincesLayer=L.geoJSON(provincesJS, {
 
 // Thêm các polygon vào bản đồ
 var dongthapLayer=L.geoJSON(dongthapJS, {
-      onEachFeature: function (feature, layer) {
-        // Gắn popup hiển thị các thuộc tính của polygon
+    onEachFeature: function (feature, layer) {
         var properties = feature.properties;
+
+        // Gắn sự kiện click để hiển thị thuộc tính
+        layer.on('click', function () {
+            var sidebar = document.getElementById('properties-content');
+            var content = "<b>Thuộc tính:</b><br>";
+
+            // Hiển thị thuộc tính của polygon
+            for (var key in properties) {
+                content += key + ": " + properties[key] + "<br>";
+            }
+
+            sidebar.innerHTML = content;
+        });
+
+        // Gắn popup hiển thị các thuộc tính
         var popupContent = "<b>Thuộc tính:</b><br>";
-
         for (var key in properties) {
-          popupContent += key + ": " + properties[key] + "<br>";
+            popupContent += key + ": " + properties[key] + "<br>";
         }
-
         layer.bindPopup(popupContent);
-      },
+    },
       style: function (feature) {
     // Tùy chọn màu sắc và kiểu đường viền cho polygon
     return {
@@ -113,17 +138,29 @@ var dongthapLayer=L.geoJSON(dongthapJS, {
 
 // Thêm các polygon vào bản đồ
 var dongthapCaphuyenLayer=L.geoJSON(dongthap_caphuyenJS, {
-      onEachFeature: function (feature, layer) {
-        // Gắn popup hiển thị các thuộc tính của polygon
+    onEachFeature: function (feature, layer) {
         var properties = feature.properties;
+
+        // Gắn sự kiện click để hiển thị thuộc tính
+        layer.on('click', function () {
+            var sidebar = document.getElementById('properties-content');
+            var content = "<b>Thuộc tính:</b><br>";
+
+            // Hiển thị thuộc tính của polygon
+            for (var key in properties) {
+                content += key + ": " + properties[key] + "<br>";
+            }
+
+            sidebar.innerHTML = content;
+        });
+
+        // Gắn popup hiển thị các thuộc tính
         var popupContent = "<b>Thuộc tính:</b><br>";
-
         for (var key in properties) {
-          popupContent += key + ": " + properties[key] + "<br>";
+            popupContent += key + ": " + properties[key] + "<br>";
         }
-
         layer.bindPopup(popupContent);
-      },
+    },
       style: function (feature) {
     // Tùy chọn màu sắc và kiểu đường viền cho polygon
     return {
@@ -138,17 +175,29 @@ var dongthapCaphuyenLayer=L.geoJSON(dongthap_caphuyenJS, {
 
 // Thêm các polygon vào bản đồ
 var tramchimLayer=L.geoJSON(tramchimJS, {
-      onEachFeature: function (feature, layer) {
-        // Gắn popup hiển thị các thuộc tính của polygon
+    onEachFeature: function (feature, layer) {
         var properties = feature.properties;
+
+        // Gắn sự kiện click để hiển thị thuộc tính
+        layer.on('click', function () {
+            var sidebar = document.getElementById('properties-content');
+            var content = "<b>Thuộc tính:</b><br>";
+
+            // Hiển thị thuộc tính của polygon
+            for (var key in properties) {
+                content += key + ": " + properties[key] + "<br>";
+            }
+
+            sidebar.innerHTML = content;
+        });
+
+        // Gắn popup hiển thị các thuộc tính
         var popupContent = "<b>Thuộc tính:</b><br>";
-
         for (var key in properties) {
-          popupContent += key + ": " + properties[key] + "<br>";
+            popupContent += key + ": " + properties[key] + "<br>";
         }
-
         layer.bindPopup(popupContent);
-      },
+    },
       style: function (feature) {
     // Tùy chọn màu sắc và kiểu đường viền cho polygon
     return {
@@ -171,6 +220,14 @@ document.getElementById("Open Street Map").addEventListener("change", function(e
         osm.addTo(map);
     } else {
         map.removeLayer(osm);
+    }
+});
+
+document.getElementById("Esri World Imagery").addEventListener("change", function(e) {
+    if (e.target.checked) {
+        Esri_WorldImagery.addTo(map);
+    } else {
+        map.removeLayer(Esri_WorldImagery);
     }
 });
 
