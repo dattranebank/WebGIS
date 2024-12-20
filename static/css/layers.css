@@ -21,9 +21,13 @@
     cursor: pointer;
 }
 
-/* Nội dung bên trong layers */
-#layers-content {
-    padding: 10px;
+#layers-content ul {
+    list-style: none; /* Loại bỏ dấu chấm đen */
+    margin: 0; /* Loại bỏ lề thừa */
+}
+
+#layers-content li {
+    margin-bottom: 5px; /* Tùy chỉnh khoảng cách giữa các dòng (tuỳ ý) */
 }
 
 /* Khi thu gọn sidebar */

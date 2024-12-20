@@ -34,10 +34,18 @@ var vietnamLayer=L.geoJSON(vietnamJS, {
         layer.on('click', function () {
             var sidebar = document.getElementById('properties-content');
             var content = "<b>Thuộc tính:</b><br>";
-
             // Hiển thị thuộc tính của polygon
             for (var key in properties) {
-                content += key + ": " + properties[key] + "<br>";
+                let value = properties[key];
+
+                // Kiểm tra nếu value là số
+                if (!isNaN(value) && typeof value === "number") {
+                    // Định dạng theo chuẩn Việt Nam
+                    value = new Intl.NumberFormat('vi-VN').format(value);
+                }
+
+                // Thêm key và giá trị vào nội dung
+                content += key + ": " + value + "<br>";
             }
 
             sidebar.innerHTML = content;
@@ -215,19 +223,19 @@ var tramchimLayer=L.geoJSON(tramchimJS, {
 /*===================================================
                Turn on/off title layers
 ===================================================*/
+// Xử lý sự kiện cho lớp Open Street Map
 document.getElementById("Open Street Map").addEventListener("change", function(e) {
     if (e.target.checked) {
-        osm.addTo(map);
-    } else {
-        map.removeLayer(osm);
+        map.removeLayer(Esri_WorldImagery); // Loại bỏ lớp Esri World Imagery
+        osm.addTo(map); // Thêm lớp Open Street Map
     }
 });
 
+// Xử lý sự kiện cho lớp Esri World Imagery
 document.getElementById("Esri World Imagery").addEventListener("change", function(e) {
     if (e.target.checked) {
-        Esri_WorldImagery.addTo(map);
-    } else {
-        map.removeLayer(Esri_WorldImagery);
+        map.removeLayer(osm); // Loại bỏ lớp Open Street Map
+        Esri_WorldImagery.addTo(map); // Thêm lớp Esri World Imagery
     }
 });
 

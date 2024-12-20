@@ -3,8 +3,14 @@
     <div id="layers-content">
         <p>Base Map</p>
         <ul>
-            <li><input type="checkbox" id="Open Street Map" checked /> Open Street Map</li>
-            <li><input type="checkbox" id="Esri World Imagery" checked/> Esri World Imagery</li>
+            <li>
+                <input type="radio" name="baseLayer" id="Open Street Map" checked />
+                <label for="Open Street Map">Open Street Map</label>
+            </li>
+            <li>
+                <input type="radio" name="baseLayer" id="Esri World Imagery" />
+                <label for="Esri World Imagery">Esri World Imagery</label>
+            </li>
         </ul>
         <p>GeoJSON Layers</p>
         <ul>
