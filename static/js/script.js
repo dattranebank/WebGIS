@@ -218,6 +218,20 @@ var tramchimLayer=L.geoJSON(tramchimJS, {
   }
     }).addTo(map);
 
+// Thêm các polygon vào bản đồ
+var waterLayer=L.geoJSON(waterJS, {
+      style: function (feature) {
+    // Tùy chọn màu sắc và kiểu đường viền cho polygon
+    return {
+      color: "#64adff",  // Màu đường viền (blue)
+      weight: 1,         // Độ dày đường viền
+      opacity: 1,        // Độ mờ của đường viền
+      fillColor: "#64adff",  // Màu nền (light blue)
+      fillOpacity: 0.3   // Độ mờ của màu nền
+    };
+  }
+    }).addTo(map);
+
 
 
 /*===================================================
@@ -236,6 +250,14 @@ document.getElementById("Esri World Imagery").addEventListener("change", functio
     if (e.target.checked) {
         map.removeLayer(osm); // Loại bỏ lớp Open Street Map
         Esri_WorldImagery.addTo(map); // Thêm lớp Esri World Imagery
+    }
+});
+
+document.getElementById("water").addEventListener("change", function(e) {
+    if (e.target.checked) {
+        waterLayer.addTo(map);
+    } else {
+        map.removeLayer(waterLayer);
     }
 });
 
