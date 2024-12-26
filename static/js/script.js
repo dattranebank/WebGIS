@@ -34,6 +34,7 @@ var vietnamLayer=L.geoJSON(vietnamJS, {
         layer.on('click', function () {
             var sidebar = document.getElementById('properties-content');
             var content = "<b>Thuộc tính:</b><br>";
+
             // Hiển thị thuộc tính của polygon
             for (var key in properties) {
                 let value = properties[key];
@@ -47,7 +48,6 @@ var vietnamLayer=L.geoJSON(vietnamJS, {
                 // Thêm key và giá trị vào nội dung
                 content += key + ": " + value + "<br>";
             }
-
             sidebar.innerHTML = content;
         });
 
@@ -119,9 +119,17 @@ var dongthapLayer=L.geoJSON(dongthapJS, {
 
             // Hiển thị thuộc tính của polygon
             for (var key in properties) {
-                content += key + ": " + properties[key] + "<br>";
-            }
+                let value = properties[key];
 
+                // Kiểm tra nếu value là số
+                if (!isNaN(value) && typeof value === "number") {
+                    // Định dạng theo chuẩn Việt Nam
+                    value = new Intl.NumberFormat('vi-VN').format(value);
+                }
+
+                // Thêm key và giá trị vào nội dung
+                content += key + ": " + value + "<br>";
+            }
             sidebar.innerHTML = content;
         });
 
@@ -156,9 +164,17 @@ var dongthapCaphuyenLayer=L.geoJSON(dongthap_caphuyenJS, {
 
             // Hiển thị thuộc tính của polygon
             for (var key in properties) {
-                content += key + ": " + properties[key] + "<br>";
-            }
+                let value = properties[key];
 
+                // Kiểm tra nếu value là số
+                if (!isNaN(value) && typeof value === "number") {
+                    // Định dạng theo chuẩn Việt Nam
+                    value = new Intl.NumberFormat('vi-VN').format(value);
+                }
+
+                // Thêm key và giá trị vào nội dung
+                content += key + ": " + value + "<br>";
+            }
             sidebar.innerHTML = content;
         });
 
